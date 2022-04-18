@@ -1,0 +1,22 @@
+extends ../base.pug
+
+block content
+  h2 Scanned result
+    small
+
+  .btn-group
+    a(href=`/books/${book.id}/delete`, class='btn btn-danger btn-sm')
+      i.glyphicon.glyphicon-trash
+      span  Delete parsed result
+
+  .media
+    .media-left
+      img(src="https://storage.googleapis.com/sde-assgn3_bucket/google-docs.png", width="64")
+    .media-body
+      h4= book.title
+        | &nbsp;
+  .media 
+    .media-body 
+      h3= 'Doc text'
+      p= book.text
+  

@@ -1,0 +1,12 @@
+extends ../base.pug
+
+block content
+  h3 #{action} Scan new document
+  form(method="POST", enctype="multipart/form-data")
+    .form-group
+      label(for="title") Document name
+      input.form-control(type="text", name="title", id="title", value=book.title)
+    .form-group
+      label(for="image") Cover Image
+      input.form-control(type="file", name="image", id="image")
+    button.btn.btn-success(type="submit") Save

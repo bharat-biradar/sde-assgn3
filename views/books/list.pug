@@ -1,0 +1,27 @@
+extends ../base.pug
+
+block content
+  h3 Scanned documents
+
+  a(href="/books/add", class='btn btn-success btn-sm')
+    i.glyphicon.glyphicon-plus
+    span  Scan new document
+  
+  each book in books
+    .media
+      a(href=`/books/${book.id}`)
+        .media-upper 
+            img(src="https://storage.googleapis.com/sde-assgn3_bucket/google-docs.png", width="64")
+        .media-body
+          h4= book.title
+            | &nbsp;
+            h5= 'View result'
+  
+  if !books.length
+    p No docs found.
+
+  if nextPageToken
+    nav
+      ul.pager
+        li
+          a(href=`?pageToken=${encodeURIComponent(nextPageToken)}`) More
